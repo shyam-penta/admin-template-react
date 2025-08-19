@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+  display: block;
+  min-width: auto;
+  min-height: 100vh;
+  place-items: normal;
+}
+
+body.menu__collapse .navigation__ico::after {
+  transform: translateY(-50%) rotate(0deg) !important;
+}
+
+body.menu__collapse .profile_info {
+  justify-content: center;
+
+  .profile_text {
+    display: none !important;
+  }
+}
+
+.pro__layout {
+
+  .body__header {
+    height: var(--header-height);
+    background-color: var(--color-header-bg);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+    z-index: 1;
+
+    .profile__section {
+      width: var(--left-menu-width);
+
+      .navigation__ico {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        cursor: pointer;
+        z-index: 1;
+
+        &::after {
+          content: "➔"; // arrow icon (can be → ➤ ▶ or custom)
+          position: absolute;
+          right: -0.9rem; // position on the right
+          top: 50%;
+          transform: translateY(-50%) rotate(180deg);
+          font-size: 0.9rem;
+          color: #383535;
+
+          border-radius: 50%;
+          border: 1px solid #383535;
+          width: 1.5rem;
+          height: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+
+      .profile_info {
+        margin: 10px;
+        padding: 5px 10px;
+
+        .profile_ico {
+          width: 32px;
+          height: 32px;
+
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+
+    .header__menu-bar {
+      width: calc(100% - var(--left-menu-width));
+    }
+  }
+
+  .main__content {
+    position: relative;
+    display: block;
+    margin-top: var(--header-height);
+
+    .body__left {
+      position: fixed;
+      width: var(--left-menu-width);
+      height: var(--left-menu-height);
+      background-color: var(--color-sidebar-bg);
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
+    }
+
+    .main__body {
+      position: relative;
+      width: calc(100vw - var(--left-menu-width));
+      margin-left: var(--left-menu-width);
+      height: 100%;
+      padding: 20px;
+    }
+  }
+}

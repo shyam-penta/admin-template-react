@@ -1,0 +1,38 @@
+:root {
+  --header-height: 60px;
+  --left-menu-width: 250px;
+  --left-menu-height: calc(100vh - var(--header-height));
+  --main-content-width: calc(100vw - var(--left-menu-width));
+}
+
+/* When menu is collapsed */
+body.menu__collapse {
+  --left-menu-width: 80px; /* smaller collapsed width */
+  --main-content-width: calc(100vw - var(--left-menu-width));
+  transition: width 0.8s ease-in-out;
+}
+
+
+// ✅ Light Theme
+.light {
+  --color-bg: #f8f9fa;         // main background
+  --color-text: #212529;       // body text
+  --color-header-bg: #ffffff;  // header background
+  --color-header-text: #212529;
+  --color-sidebar-bg: #ffffff; // left menu background
+  --color-sidebar-text: #495057;
+  --color-border: #dee2e6;     // subtle border
+  --color-primary: #0d6efd;    // bootstrap-like primary
+}
+
+// ✅ Dark Theme
+.dark {
+  --color-bg: #121212;         // main background
+  --color-text: #f1f3f5;       // body text
+  --color-header-bg: #1f1f1f;  // header background
+  --color-header-text: #f8f9fa;
+  --color-sidebar-bg: #1a1a1a; // left menu background
+  --color-sidebar-text: #ced4da;
+  --color-border: #2c2c2c;     // subtle border
+  --color-primary: #4dabf7;    // softer blue for dark mode
+}
