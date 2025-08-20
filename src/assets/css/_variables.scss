@@ -3,11 +3,15 @@
   --left-menu-width: 250px;
   --left-menu-height: calc(100vh - var(--header-height));
   --main-content-width: calc(100vw - var(--left-menu-width));
+  --manu-list-font-size: 13px;
+  --main-menu-left-padding: 20px;
+  --left-menu-profile-width: var(--left-menu-width);
 }
 
 /* When menu is collapsed */
 body.menu__collapse {
-  --left-menu-width: 80px; /* smaller collapsed width */
+  --left-menu-width: 70px;
+  /* smaller collapsed width */
   --main-content-width: calc(100vw - var(--left-menu-width));
   transition: width 0.8s ease-in-out;
 }
@@ -15,24 +19,26 @@ body.menu__collapse {
 
 // ✅ Light Theme
 .light {
-  --color-bg: #f8f9fa;         // main background
-  --color-text: #212529;       // body text
-  --color-header-bg: #ffffff;  // header background
+  --color-bg: #f8f9fa;
+  --color-text: #212529;
+  --color-header-bg: #ffffff;
   --color-header-text: #212529;
-  --color-sidebar-bg: #ffffff; // left menu background
+  --color-sidebar-bg: #ffffff;
   --color-sidebar-text: #495057;
-  --color-border: #dee2e6;     // subtle border
-  --color-primary: #0d6efd;    // bootstrap-like primary
+  --color-border: #d4d4d4;
+  --color-primary: #0d6efd;
+  --color-active-menu: #00d8ff;
 }
 
 // ✅ Dark Theme
 .dark {
-  --color-bg: #121212;         // main background
-  --color-text: #f1f3f5;       // body text
-  --color-header-bg: #1f1f1f;  // header background
+  --color-bg: #121212;
+  --color-text: #f1f3f5;
+  --color-header-bg: #1f1f1f;
   --color-header-text: #f8f9fa;
-  --color-sidebar-bg: #1a1a1a; // left menu background
+  --color-sidebar-bg: #1a1a1a;
   --color-sidebar-text: #ced4da;
-  --color-border: #2c2c2c;     // subtle border
-  --color-primary: #4dabf7;    // softer blue for dark mode
+  --color-border: #2c2c2c;
+  --color-primary: #4dabf7;
+  --color-active-menu: #00d8ff;
 }
