@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import MenuProfileInfo from "./menu-profile"
 import { useSelector } from "react-redux"
 import type { RootState } from "@store/index"
+import MenuProfileDialog from "./menu-profile-dialog"
 
 const LeftMenu = () => {
 
@@ -11,6 +12,8 @@ const LeftMenu = () => {
   const [showUserProDialog, setShowUserProDialog] = useState(false)
 
   const { isMenuCollapse } = useSelector((state: RootState) => state.common)
+
+  const userProRef = useRef(null);
 
   const menuList = [
     {
@@ -59,32 +62,13 @@ const LeftMenu = () => {
       {/* Profile Information */}
       <section className="border-bottom">
         <div className="pro-sec"><MenuProfileInfo /></div>
-        <div className="min-pro-sec">
+        <div className="min-pro-sec" ref={userProRef}>
           <img src="/img/react.svg" alt="logged-user" onClick={() => setShowUserProDialog(!showUserProDialog)} />
           {
             showUserProDialog &&
-            <div className="pro-dialog">
-              <MenuProfileInfo />
-            </div>
+            <MenuProfileDialog  ref={userProRef} handleClose={() => setShowUserProDialog(false)}/>
           }
         </div>
-
-        {/* <div className="user-profile-sec">
-          <div className="d-flex pro-media">
-            <img src="/img/react.svg" alt="logged-user" />
-            <div className="ms-3 w-100 pro-body">
-              <h6>Sayan Maji</h6>
-              <span className="sub-txt">Super Admin</span>
-            </div>
-          </div>
-          <div className="pro-footer">
-            <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Dashboard"><i className="fa-solid fa-house"></i></span>
-            <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i className="fa-solid fa-user"></i></span>
-            <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings"><i className="fa-solid fa-gear"></i></span>
-            <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign Out"><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
-            <span className="cursor-pointer"><i className="fa-solid fa-ellipsis-vertical"></i></span>
-          </div>
-        </div> */}
       </section>
       <section className="menu-section">
 

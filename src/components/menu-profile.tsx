@@ -1,6 +1,6 @@
 const MenuProfileInfo = () => {
   return (
-    <div className="user-profile-sec">
+    <div className="left-menu-pro">
       <div className="d-flex pro-media">
         <img src="/img/react.svg" alt="logged-user" />
         <div className="ms-3 w-100 pro-body">
