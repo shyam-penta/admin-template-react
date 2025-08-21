@@ -6,6 +6,10 @@ body {
   place-items: normal;
 }
 
+.popper-arrow {
+  filter: drop-shadow(-1px 1px 0px rgba(0, 0, 0, 0.14));
+}
+
 .cursor-pointer {
   cursor: pointer !important;
 }
@@ -158,7 +162,8 @@ body.menu__collapse .body__left {
 
       .menu-section {
         font-size: var(--manu-list-font-size) !important;
-
+        height: calc(100vh - (var(--header-height) + var(--left-menu-pro-height)));
+        
         .menu-item {
           .__main-menu {
             display: flex;

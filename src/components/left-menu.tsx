@@ -73,9 +73,9 @@ const LeftMenu = () => {
       <section className="menu-section">
 
         {
-          menuList?.map((item: any) => {
+          menuList?.map((item: any, index:number) => {
             return (
-              <div className={`menu-item${activeMenu == item.slug ? ' active' : ''}`}> {/* TO active the menu add 'active' class */}
+              <div key={`sub_menu_${index}`} className={`menu-item${activeMenu == item.slug ? ' active' : ''}`}> {/* TO active the menu add 'active' class */}
                 <div className="__main-menu" onClick={() => {
                   if (item?.sub_menus?.length > 0) {
                     setExpandMenuSlug(expandMenuSlug == item.slug ? null : item.slug);
@@ -92,10 +92,10 @@ const LeftMenu = () => {
                   item?.sub_menus?.length > 0 &&
                   <div className={`__sub_menus${expandMenuSlug == item.slug ? ' expand' : ''}`}> {/* Add expanded class for showing the sub menu list */}
                     {
-                      item?.sub_menus.map((subItem: any) => {
+                      item?.sub_menus.map((subItem: any, subIndex: number) => {
                         return (
                           // To active the sub-menu add 'active' class
-                          <span className={`${activeSubMenu == subItem.slug ? 'active' : ''}`} onClick={() => {
+                          <span key={`sub_menu_${subIndex}`} className={`${activeSubMenu == subItem.slug ? 'active' : ''}`} onClick={() => {
                             setActiveMenu(item.slug);
                             setActiveSubMenu(subItem.slug);
                           }}>{subItem?.title}</span>
