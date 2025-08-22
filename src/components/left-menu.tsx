@@ -108,26 +108,6 @@ const LeftMenu = () => {
             )
           })
         }
-
-        {/* <div className="menu-item active">
-          <div className="__main-menu">
-            <div className="menu-ico"><i className="fa-solid fa-house"></i></div>
-            <div className="menu-txt">Dashbaord</div>
-          </div>
-        </div>
-
-        <div className="menu-item">
-          <div className="__main-menu">
-            <div className="menu-ico"><i className="fa-solid fa-gear"></i></div>
-            <div className="menu-txt">Settings</div>
-          </div>
-          <div className="__sub_menus expand">
-            <span>Option - 1</span>
-            <span>Option - 2</span>
-            <span>Option - 3</span>
-            <span>Option - 4</span>
-          </div>
-        </div> */}
       </section>
     </div>
   )

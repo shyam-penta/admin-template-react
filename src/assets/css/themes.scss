@@ -79,6 +79,29 @@ body.menu__collapse .body__left {
   }
 }
 
+.auth__layout {
+  height: 100vh;
+  background-image: url(/img/auth-bg-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+
+  .layout-section {
+    padding: 1rem;
+    .auth_body {
+      background-color: #fff;
+      border-radius: var(--border-radius);
+      margin: 10px 0;
+      .auth-page {
+        &.sign-in {
+          width: 300px;
+          min-height: 250px;
+        }
+      }
+    }
+  }
+}
+
 .pro__layout {
   .body__header {
     height: var(--header-height);
@@ -147,7 +170,7 @@ body.menu__collapse .body__left {
       background-color: var(--color-sidebar-bg);
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
 
-      .pro-sec{
+      .pro-sec {
         height: var(--left-menu-pro-height);
       }
 
@@ -163,7 +186,7 @@ body.menu__collapse .body__left {
       .menu-section {
         font-size: var(--manu-list-font-size) !important;
         height: calc(100vh - (var(--header-height) + var(--left-menu-pro-height)));
-        
+
         .menu-item {
           .__main-menu {
             display: flex;

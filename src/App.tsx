@@ -1,10 +1,12 @@
-import './App.css'
-import './assets/css/themes.scss'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import ProtectedLayout from './layouts/protected-layout'
-import Dashboard from '@pages/protected/dashboard'
-import { useEffect } from 'react'
+import './App.css';
+import './assets/css/themes.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ProtectedLayout from './layouts/protected-layout';
+import Dashboard from '@pages/protected/dashboard';
+import { useEffect } from 'react';
 import { Tooltip } from "bootstrap";
+import AuthLayout from '@layouts/auth-layout';
+import SignIn from '@pages/auth/sign-in';
 
 function App() {
 
@@ -22,9 +24,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Layout wrapper */}
-        <Route element={<ProtectedLayout />}>
-          <Route path="/" element={<Dashboard />} />
+        <Route element={<AuthLayout />}>
+          <Route path="/" element={<SignIn />} />
         </Route>
+        {/* <Route element={<ProtectedLayout />}>
+          <Route path="/" element={<Dashboard />} />
+        </Route> */}
       </Routes>
     </BrowserRouter>
   )
