@@ -1,6 +1,6 @@
 // common-slice.ts
 import { STORAGE_KEYS } from "@core/constants/storage-keys";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 const _isMenuCollapse: boolean = !!localStorage.getItem(STORAGE_KEYS.MENU_COLLAPSE_CLASS) || false;
 
@@ -11,10 +11,12 @@ if (_isMenuCollapse && !document.body.classList.contains(STORAGE_KEYS.MENU_COLLA
 
 interface CommonState {
   isMenuCollapse: boolean;
+  authPageTitle: string;
 }
 
 const initialState: CommonState = {
   isMenuCollapse: !!_isMenuCollapse,
+  authPageTitle: "",
 };
 
 const commonSlice = createSlice({
@@ -32,8 +34,11 @@ const commonSlice = createSlice({
         state.isMenuCollapse = true;
       }
     },
+    setAuthPageTitle(state: CommonState, action: PayloadAction<string>) {
+      state.authPageTitle = action.payload;
+    },
   },
 });
 
-export const { toggleLeftMenu } = commonSlice.actions;
+export const { toggleLeftMenu, setAuthPageTitle } = commonSlice.actions;
 export default commonSlice.reducer;
