@@ -1,4 +1,10 @@
 const MenuProfileInfo = () => {
+
+  const signOut = () => {
+    localStorage.removeItem("authToken");
+    window.location.reload();
+  };
+
   return (
     <div className="left-menu-pro">
       <div className="d-flex pro-media">
@@ -12,7 +18,7 @@ const MenuProfileInfo = () => {
         <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Dashboard"><i className="fa-solid fa-house"></i></span>
         <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Profile"><i className="fa-solid fa-user"></i></span>
         <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings"><i className="fa-solid fa-gear"></i></span>
-        <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign Out"><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
+        <span className="cursor-pointer" data-bs-toggle="tooltip" data-bs-placement="top" title="Sign Out" onClick={signOut}><i className="fa-solid fa-arrow-right-from-bracket"></i></span>
         <span className="cursor-pointer"><i className="fa-solid fa-ellipsis-vertical"></i></span>
       </div>
     </div>
