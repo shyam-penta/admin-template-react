@@ -1,25 +1,34 @@
-export const ROUTES = {
-  HOME: "",
-  AUTH: {
-    SIGN_IN: "/auth/sign-in",
-    SIGN_UP: "/auth/sign-up",
-    FORGOT_PASS: "/auth/forgot-password",
-    RESET_PASS: "/auth/reset-password",
-    FORCE_UPDATE_PASS: "/auth/update-password",
+import { AuthGuard, ProtectedGuard } from "@core/guards";
+import { AuthLayout, ChildrenWarperLayout, Dashboard, ProtectedLayout, SignIn } from "./route-pages";
+import { SignUp } from "@core/constants/app-routes";
+
+export const APP_ROUTES = [
+  {
+    path: "auth",
+    component: AuthLayout,
+    children: [
+      {
+        path: "",
+        guard: AuthGuard,
+        component: ChildrenWarperLayout,
+        children: [
+          { path: "sign-in", component: SignIn },
+          { path: "sign-up", component: SignUp },
+          // { path: "forgot-password", component: ForgotPasswod },
+          // { path: "reset-password", component: ResetPassword },
+          { path: "", redirectTo: "sign-in" }
+        ]
+      }
+    ]
   },
-  PROTECTED: {
-    DASHBOARD: "/dashboard",
-    USER_MANAGEMENT: "/user-management",
-    PROFILE: `/my-profile`,
-    TASK: `/task-management`,
-    ROLE: {
-      LIST: `/role-management`
-    },
-    PROJECT: {
-      LIST: `/project-management`
-    }
+  {
+    path: "",
+    component: ProtectedLayout,
+    guard: ProtectedGuard,
+    children: [
+      { path: "dashboard", component: Dashboard },
+      { path: "", redirectTo: "dashboard" }
+    ]
   },
-  NOT_FOUND: "/404",
-  ERROR_500: "/500",
-  ANY_PATH: "*"
-}
+  // { path: "*", component: NotFound }  // catch-all redirect
+];
